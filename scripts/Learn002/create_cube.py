@@ -1,5 +1,34 @@
 import maya.cmds as cmds
+import random
 
-# result = cmds.polyCube(ch =True,o=True,w=9.248,h=9.248,d=9.248,cuv=4)
+def create_cube_insta():
+    random.seed(556876)
 
-result2 = cmds.polyCube()
+    parentCube = cmds.polyCube( w=1 , h=1 , d=1 , n ="myCube#" )
+    # print("(Debug)Result:" + str( parentCube ))
+
+    transformName = parentCube[0]
+    insGroupName = cmds.group(em=True,n = transformName + "_instance_Grp#")
+
+    for i in range(0,50):
+        instanceResult = cmds.instance ( transformName , n=transformName + "_instance#")
+        cmds.parent(instanceResult,insGroupName)
+
+        x = random.uniform( -10 , 10 )
+        y = random.uniform ( -10 , 10 )
+        z = random.uniform ( -10 , 10 )
+
+        rotX = random.uniform(0,360)
+        rotY = random.uniform ( 0 , 360 )
+        rotZ = random.uniform ( 0 , 360 )
+
+        scaleRandom = random.uniform(0.3,1.5)
+
+        cmds.move(x , y , z , instanceResult )
+        cmds.rotate(rotX,rotY,rotZ,instanceResult)
+        cmds.scale(scaleRandom,scaleRandom,scaleRandom,instanceResult)
+
+    # print("(Debug) Instances built." )
+
+    cmds.hide(transformName)
+    cmds.xform(insGroupName,cp=True)
