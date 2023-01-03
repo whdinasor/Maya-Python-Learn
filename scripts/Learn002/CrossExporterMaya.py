@@ -61,7 +61,7 @@ def toBlender():
     mel.eval ( "doGroup 1 1 1" )
     tempSelect = cmds.ls(selection=True)
     cmds.rotate(worldSpace=True,rotateXYZ=True,orientAxes=(0,90,0))
-    cmds.makeIdentity(tempSelect,apply=True,t=True,r=True,s=True)
+    # cmds.makeIdentity(tempSelect,apply=True,t=True,r=True,s=True)
     mel.eval ( "ungroup" )
     print ("Debug: Y rotate 90,and Ungroup.")
 
@@ -72,7 +72,7 @@ def toBlender():
     mel.eval ( "doGroup 1 1 1" )
     tempSelect = cmds.ls ( selection=True )
     cmds.rotate ( worldSpace=True , rotateXYZ=True , orientAxes=(0 , -90 , 0) )
-    cmds.makeIdentity ( tempSelect , apply=True , t=True , r=True , s=True )
+    # cmds.makeIdentity ( tempSelect , apply=True , t=True , r=True , s=True )
     mel.eval ( "ungroup" )
     print ("Debug: Y rotate -90,and Ungroup.")
 
@@ -81,7 +81,7 @@ def toUnity():
     mel.eval ( "doGroup 1 1 1" )
     tempSelect = cmds.ls(selection=True)
     cmds.rotate(worldSpace=True,rotateXYZ=True,orientAxes=(0,-90,0))
-    cmds.makeIdentity(tempSelect,apply=True,t=True,r=True,s=True)
+    # cmds.makeIdentity(tempSelect,apply=True,t=True,r=True,s=True)
     mel.eval ( "ungroup" )
     print ("Debug: Y rotate -90,and Ungroup.")
     # cmds.fileDialog2()    return the file path
@@ -93,7 +93,7 @@ def toUnity():
     mel.eval ( "doGroup 1 1 1" )
     tempSelect = cmds.ls ( selection=True )
     cmds.rotate ( worldSpace=True , rotateXYZ=True , orientAxes=(0 , 90 , 0) )
-    cmds.makeIdentity ( tempSelect , apply=True , t=True , r=True , s=True )
+    # cmds.makeIdentity ( tempSelect , apply=True , t=True , r=True , s=True )
     mel.eval ( "ungroup" )
     print ("Debug: Y rotate 90,and Ungroup.")
 
